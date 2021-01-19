@@ -37,7 +37,7 @@ namespace GShock.BL
 
         public Response ButtonC()
         {
-            return States[CurrentStateId].Refresh();
+            return States[CurrentStateId].ButtonC();
         }
 
         public Response ButtonS()
@@ -46,7 +46,7 @@ namespace GShock.BL
             // _endTimeState = DateTime.Now;
             // DurationTimeState durationTimeState = new DurationTimeState()
             CurrentStateId = (CurrentStateId + 1) % States.Length;
-            return States[CurrentStateId].Refresh();
+            return States[CurrentStateId].Refresh(0);
         }
 
         public Response Refresh(int refreshTime)

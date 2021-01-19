@@ -28,13 +28,6 @@ namespace GShock.Core.States
             _timeLeft = _timeLeft.Add(new TimeSpan(0, 1, 0));
             return new Response(_timeLeft.ToString());
         }
-
-        public Response Refresh()
-        {
-            _timeLeft = _timeLeft.Add(new TimeSpan(1, 0, 0));
-            return new Response(_timeLeft.ToString());
-        }
-
         public Response ButtonS()
         {
             return new Response(_timeLeft.ToString());
@@ -43,6 +36,12 @@ namespace GShock.Core.States
         public Response ButtonA()
         {
             _isRunning = !_isRunning;
+            return new Response(_timeLeft.ToString());
+        }
+
+        public Response ButtonC()
+        {
+            _timeLeft = _timeLeft.Add(new TimeSpan(1, 0, 0));
             return new Response(_timeLeft.ToString());
         }
     }

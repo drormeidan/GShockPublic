@@ -10,8 +10,8 @@ namespace GShock.Core.States
     {
         public Response Refresh(int refreshTime);
         public Response ButtonB();
-        public Response Refresh();
         public Response ButtonS();
         public Response ButtonA();
+        public Response ButtonC();
     }
 }
