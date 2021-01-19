@@ -1,0 +1,57 @@
+﻿@using GShock.BL
+
+@page "/gshockMain"
+@inject IHandleState handleService
+
+<h3>GshockMain</h3>
+
+<button class="btn btn-primary" @onclick="(async () => { GShock(); })">Turn on</button>
+
+<p> @display</p>
+
+<button class="btn btn-primary" @onclick="ButtonA">A</button>
+<button class="btn btn-primary" @onclick="ButtonB">B</button>
+<button class="btn btn-primary" @onclick="ButtonC">C</button>
+<button class="btn btn-primary" @onclick="ButtonA">S</button>
+
+@code {
+    public string display = "hello world";
+    public bool isClicked = false;
+    public int funnyCount = 0;
+
+    private void ButtonA()
+    {
+        var response = handleService.ButtonA();
+        display = response.ShowString;
+        StateHasChanged();
+    }
+
+
+    private void ButtonB()
+    {
+        var response = handleService.ButtonB();
+        display = response.ShowString;
+        StateHasChanged();
+    }
+
+    private void ButtonC()
+    {
+        var response = handleService.ButtonC();
+        display = response.ShowString;
+        StateHasChanged();
+    }
+
+    async Task GShock()
+    {
+        while(true)
+        {
+            await Task.Delay(1000);
+            var response = handleService.Refresh(1);
+            display = response.ShowString;
+
+            //funnyCount += 1;
+            //display = funnyCount.ToString();
+            StateHasChanged();
+        }
+    }
+}

@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\GShock.BL\GShock.BL.csproj" />
+    <ProjectReference Include="..\GShock.Core\GShock.Core.csproj" />
+  </ItemGroup>
+
 </Project>

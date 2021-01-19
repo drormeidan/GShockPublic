@@ -1,11 +1,49 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {}
+    ".NETCoreApp,Version=v3.1": {
+      "GShock.BL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "GShock.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/GShock.BL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GShock.BL.dll": {}
+        }
+      },
+      "GShock.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/GShock.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GShock.Core.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "GShock.BL/1.0.0": {
+      "type": "project",
+      "path": "../GShock.BL/GShock.BL.csproj",
+      "msbuildProject": "../GShock.BL/GShock.BL.csproj"
+    },
+    "GShock.Core/1.0.0": {
+      "type": "project",
+      "path": "../GShock.Core/GShock.Core.csproj",
+      "msbuildProject": "../GShock.Core/GShock.Core.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": []
+    ".NETCoreApp,Version=v3.1": [
+      "GShock.BL >= 1.0.0",
+      "GShock.Core >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\user\\.nuget\\packages\\": {}
@@ -33,7 +71,14 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\user\\Documents\\דרור\\CSProject\\GShockPublic\\GShock.API\\GShock.BL\\GShock.BL.csproj": {
+              "projectPath": "C:\\Users\\user\\Documents\\דרור\\CSProject\\GShockPublic\\GShock.API\\GShock.BL\\GShock.BL.csproj"
+            },
+            "C:\\Users\\user\\Documents\\דרור\\CSProject\\GShockPublic\\GShock.API\\GShock.Core\\GShock.Core.csproj": {
+              "projectPath": "C:\\Users\\user\\Documents\\דרור\\CSProject\\GShockPublic\\GShock.API\\GShock.Core\\GShock.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

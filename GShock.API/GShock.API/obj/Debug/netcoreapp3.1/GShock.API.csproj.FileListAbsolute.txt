@@ -49,3 +49,9 @@ C:\Users\user\Documents\דרור\CSProject\GShockPublic\GShock.API\GShock.API\ob
 C:\Users\user\Documents\דרור\CSProject\GShockPublic\GShock.API\GShock.API\obj\Debug\netcoreapp3.1\GShock.API.pdb
 C:\Users\user\Documents\דרור\CSProject\GShockPublic\GShock.API\GShock.API\obj\Debug\netcoreapp3.1\GShock.API.genruntimeconfig.cache
 C:\Users\user\Documents\דרור\CSProject\GShockPublic\GShock.API\GShock.API\obj\Debug\netcoreapp3.1\GShock.API.csproj.CopyComplete
+C:\Users\user\Documents\דרור\CSProject\GShockPublic\GShock.API\GShock.API\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\GshockMain.razor.g.cs
+C:\Users\user\Documents\דרור\CSProject\GShockPublic\GShock.API\GShock.API\bin\Debug\netcoreapp3.1\GShock.BL.dll
+C:\Users\user\Documents\דרור\CSProject\GShockPublic\GShock.API\GShock.API\bin\Debug\netcoreapp3.1\GShock.Core.dll
+C:\Users\user\Documents\דרור\CSProject\GShockPublic\GShock.API\GShock.API\bin\Debug\netcoreapp3.1\GShock.BL.pdb
+C:\Users\user\Documents\דרור\CSProject\GShockPublic\GShock.API\GShock.API\bin\Debug\netcoreapp3.1\GShock.Core.pdb
+C:\Users\user\Documents\דרור\CSProject\GShockPublic\GShock.API\GShock.API\obj\Debug\netcoreapp3.1\Razor\Pages\GshockMain.razor.g.cs

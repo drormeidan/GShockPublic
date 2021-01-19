@@ -24,6 +24,8 @@
     ".NETCoreApp,Version=v3.1": {
       "GShock.API/1.0.0": {
         "dependencies": {
+          "GShock.BL": "1.0.0",
+          "GShock.Core": "1.0.0",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "3.1.0.0",
@@ -312,6 +314,25 @@
         },
         "compile": {
           "GShock.API.dll": {}
+        }
+      },
+      "GShock.BL/1.0.0": {
+        "dependencies": {
+          "GShock.Core": "1.0.0"
+        },
+        "runtime": {
+          "GShock.BL.dll": {}
+        },
+        "compile": {
+          "GShock.BL.dll": {}
+        }
+      },
+      "GShock.Core/1.0.0": {
+        "runtime": {
+          "GShock.Core.dll": {}
+        },
+        "compile": {
+          "GShock.Core.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/3.1.0.0": {
@@ -2010,6 +2031,16 @@
   },
   "libraries": {
     "GShock.API/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GShock.BL/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GShock.Core/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
