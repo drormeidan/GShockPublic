@@ -11,12 +11,14 @@ namespace GShock.Core.States
         public double DaysCorretion { get; set; }
         public bool InEditState { get; set; }
         private string _dateForamt = "dd/MM/yyyy";
+        public string Name { get; set; }
 
         public Dater()
         {
             DaysCorretion = 0;
             MonthsCorretion = 0;
             InEditState = false;
+            Name = "Dater";
         }
 
         private string DisplayTime()
@@ -55,7 +57,7 @@ namespace GShock.Core.States
             return new Response(DisplayTime());
         }
 
-        public Response Refresh(int refreshTime)
+        public Response Refresh()
         {
             return new Response(DisplayTime());
         }

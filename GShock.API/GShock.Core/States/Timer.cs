@@ -8,41 +8,59 @@ namespace GShock.Core.States
         public Timer()
         {
             _isRunning = true;
-            _timeLeft = new TimeSpan(0, 0, 15);
+            _endTime = DateTime.Now.AddSeconds(15);
+            _timeLeft = _endTime-DateTime.Now;
             Name = "Timer";
+            _timeLeftFormat = @"hh\:mm\:ss\.fff";
         }
         private bool _isRunning;
         private TimeSpan _timeLeft;
+        private DateTime _endTime;
+        private string _timeLeftFormat;
         public string Name { get; set; }
-        public Response Refresh(int refreshTime)
+        public Response Refresh()
         {
-            if (_timeLeft > new TimeSpan() && _isRunning)
+            if (_isRunning)
             {
-                _timeLeft = _timeLeft.Subtract(new TimeSpan(0, 0, refreshTime));
+                if (_endTime > DateTime.Now)
+                {
+                    _timeLeft = _endTime - DateTime.Now;
+
+                }
+                else
+                {
+                    _timeLeft = new TimeSpan();
+                }
             }
-            return new Response(_timeLeft.ToString());
+            return new Response(_timeLeft.ToString(_timeLeftFormat));
         }
 
         public Response ButtonB()
         {
+            _endTime = _endTime.AddMinutes(1);
             _timeLeft = _timeLeft.Add(new TimeSpan(0, 1, 0));
-            return new Response(_timeLeft.ToString());
+            return this.Refresh();
         }
         public Response ButtonS()
         {
-            return new Response(_timeLeft.ToString());
+            return this.Refresh();
         }
 
         public Response ButtonA()
         {
             _isRunning = !_isRunning;
-            return new Response(_timeLeft.ToString());
+            if (_isRunning)
+            {
+                _endTime = DateTime.Now + _timeLeft;
+            }
+            return this.Refresh();
         }
 
         public Response ButtonC()
         {
+            _endTime = _endTime.AddHours(1);
             _timeLeft = _timeLeft.Add(new TimeSpan(1, 0, 0));
-            return new Response(_timeLeft.ToString());
+            return this.Refresh();
         }
     }
 }

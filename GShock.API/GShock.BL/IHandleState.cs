@@ -9,7 +9,7 @@ namespace GShock.BL
 {
     public interface IHandleState
     {
-        public Response Refresh(int refreshTime);
+        public Response Refresh();
         public Response ButtonS();
         public Response ButtonB();
         public Response ButtonC();

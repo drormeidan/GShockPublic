@@ -46,12 +46,12 @@ namespace GShock.BL
             // _endTimeState = DateTime.Now;
             // DurationTimeState durationTimeState = new DurationTimeState()
             CurrentStateId = (CurrentStateId + 1) % States.Length;
-            return States[CurrentStateId].Refresh(0);
+            return States[CurrentStateId].Refresh();
         }
 
-        public Response Refresh(int refreshTime)
+        public Response Refresh()
         {
-            return States[CurrentStateId].Refresh(refreshTime);
+            return States[CurrentStateId].Refresh();
         }
     }
 }

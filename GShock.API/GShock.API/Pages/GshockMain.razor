@@ -36,8 +36,8 @@
     {
         while(true)
         {
-            await Task.Delay(1000);
-            var response = handleService.Refresh(refreshTime);
+            await Task.Delay(1000*refreshTime);
+            var response = handleService.Refresh();
             display.Value = response.Value;
 
             StateHasChanged();

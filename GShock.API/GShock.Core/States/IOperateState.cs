@@ -8,7 +8,7 @@ namespace GShock.Core.States
 {
     public interface IOperateState
     {
-        public Response Refresh(int refreshTime);
+        public Response Refresh();
         public Response ButtonB();
         public Response ButtonS();
         public Response ButtonA();
