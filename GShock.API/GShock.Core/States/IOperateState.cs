@@ -9,9 +9,9 @@ namespace GShock.Core.States
     public interface IOperateState
     {
         public Response Refresh();
-        public Response ButtonB();
+        public Response ButtonB(bool isDouble, bool isLong);
         public Response ButtonS();
-        public Response ButtonA();
-        public Response ButtonC();
+        public Response ButtonA(bool isDouble, bool isLong);
+        public Response ButtonC(bool isDouble, bool isLong);
     }
 }

@@ -16,9 +16,9 @@ namespace GShock.API.Data
             _handleState = handleState;
         }
 
-        public Response Execute()
+        public Response Execute(bool isDouble = false, bool isLong = false)
         {
-            return _handleState.ButtonA();
+            return _handleState.ButtonA(isDouble,isLong);
         }
     }
 }

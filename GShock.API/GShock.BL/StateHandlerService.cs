@@ -19,25 +19,25 @@ namespace GShock.BL
 
         public StateHandlerService()
         {
-            States = new IOperateState[] { new Timer(), new Dater() };
+            States = new IOperateState[] { new Timer(), new Dater(), new Clock() };
             CurrentStateId = 0;
             _startTimeState = DateTime.Now;
             _endTimeState = DateTime.Now;
         }
 
-        public Response ButtonA()
+        public Response ButtonA(bool isDouble = false, bool isLong = false)
         {
-            return States[CurrentStateId].ButtonA();
+            return States[CurrentStateId].ButtonA(isDouble, isLong);
         }
 
-        public Response ButtonB()
+        public Response ButtonB(bool isDouble = false, bool isLong = false)
         {
-            return States[CurrentStateId].ButtonB();
+            return States[CurrentStateId].ButtonB(isDouble, isLong);
         }
 
-        public Response ButtonC()
+        public Response ButtonC(bool isDouble = false, bool isLong = false)
         {
-            return States[CurrentStateId].ButtonC();
+            return States[CurrentStateId].ButtonC(isDouble, isLong);
         }
 
         public Response ButtonS()

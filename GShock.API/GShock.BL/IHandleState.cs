@@ -11,9 +11,9 @@ namespace GShock.BL
     {
         public Response Refresh();
         public Response ButtonS();
-        public Response ButtonB();
-        public Response ButtonC();
-        public Response ButtonA();
+        public Response ButtonB(bool isDouble = false, bool isLong = false);
+        public Response ButtonC(bool isDouble = false, bool isLong = false);
+        public Response ButtonA(bool isDouble = false, bool isLong = false);
 
     }
 }

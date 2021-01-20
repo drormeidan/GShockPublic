@@ -8,6 +8,6 @@ namespace GShock.API.Data
 {
     public interface IClickButton
     {
-        public Response Execute();
+        public Response Execute(bool isDouble= false, bool isLong = false);
     }
 }

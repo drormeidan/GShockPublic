@@ -10,23 +10,50 @@
 
 @if (display.Type == "string")
 {
-<p> @display.Value</p>
+    <p> @display.Value</p>
 }
 
-<button class="btn btn-primary" @onclick="() => { ButtonClicked(new ButtonA(handleService)); }">A</button>
-<button class="btn btn-primary" @onclick="() => { ButtonClicked(new ButtonB(handleService)); }">B</button>
-<button class="btn btn-primary" @onclick="() => { ButtonClicked(new ButtonC(handleService)); }">C</button>
-<button class="btn btn-primary" @onclick="() => { ButtonClicked(new ButtonS(handleService)); }">S</button>
+<button class="btn btn-primary"
+        @onmouseup="() => { PressEnd = DateTime.Now;   
+                        ButtonClicked(new ButtonA(handleService)); }"
+        @onmousedown="()  => { PressStart = DateTime.Now; }">
+    A
+</button>
+<button class="btn btn-primary"
+        @onmouseup="() => { PressEnd = DateTime.Now;  
+                        ButtonClicked(new ButtonB(handleService)); }"
+        @onmousedown="()  => { PressStart = DateTime.Now; }">
+    B
+</button>
+<button class="btn btn-primary"
+        @onmouseup="() => { PressEnd = DateTime.Now; 
+                        ButtonClicked(new ButtonC(handleService)); }"
+        @onmousedown="()  => { PressStart = DateTime.Now; }">
+    C
+</button>
+<button class="btn btn-primary"
+        @onmouseup="() => { PressEnd = DateTime.Now; 
+                        ButtonClicked(new ButtonS(handleService)); }"
+        @onmousedown="()  => { PressStart = DateTime.Now; }">
+    S
+</button>
 
 @code {
     public bool isClicked = false;
     public Display display = new Display("string", "Turn on GShock");
     public int refreshTime = 1;
+    public DateTime PressStart = DateTime.Now;
+    public DateTime PressEnd = DateTime.Now;
 
 
     private void ButtonClicked(IClickButton clickButton)
     {
-        var response = clickButton.Execute();
+        bool isLongClick = false;
+        if ( (PressEnd-PressStart) > new TimeSpan(0, 0, 1))
+        {
+            isLongClick = true;
+        }
+        var response = clickButton.Execute(isLong: isLongClick);
         display.Value = response.Value;
         StateHasChanged();
 
@@ -34,9 +61,9 @@
 
     async Task GShock()
     {
-        while(true)
+        while (true)
         {
-            await Task.Delay(1000*refreshTime);
+            await Task.Delay(1000 * refreshTime);
             var response = handleService.Refresh();
             display.Value = response.Value;
 

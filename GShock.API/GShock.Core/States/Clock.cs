@@ -5,27 +5,29 @@ using System.Text;
 
 namespace GShock.Core.States
 {
-    public class Dater : IOperateState
+    public class Clock : IOperateState
     {
-        public int MonthsCorretion { get; set; }
-        public double DaysCorretion { get; set; }
+        public int HoursCorretion { get; set; }
+        public int SecondsCorretion { get; set; }
+        public int MinutesCorretion { get; set; }
         public bool InEditState { get; set; }
-        private string _dateForamt = "dd/MM/yyyy";
+        private string _timeForamt = "hh:mm:ss";
         public string Name { get; set; }
 
-        public Dater()
+        public Clock()
         {
-            DaysCorretion = 0;
-            MonthsCorretion = 0;
+            MinutesCorretion = 0;
+            HoursCorretion = 0;
+            SecondsCorretion = 0;
             InEditState = false;
-            Name = "Dater";
+            Name = "Clock";
         }
-
         private string DisplayTime()
         {
             var time = DateTime.Now;
-            time = time.AddDays(DaysCorretion).AddMonths(MonthsCorretion);
-            return time.ToString(_dateForamt);
+            time = time + 
+                new TimeSpan(HoursCorretion,MinutesCorretion,SecondsCorretion);
+            return time.ToString(_timeForamt);
         }
 
         public Response ButtonA(bool isDouble, bool isLong)
@@ -38,7 +40,7 @@ namespace GShock.Core.States
         {
             if (InEditState)
             {
-                DaysCorretion += 1;
+                MinutesCorretion += 1;
             }
             return new Response(DisplayTime());
         }
@@ -47,7 +49,16 @@ namespace GShock.Core.States
         {
             if (InEditState)
             {
-                MonthsCorretion += 1;
+                if (isLong)
+                {
+                    var time = DateTime.Now +
+                        new TimeSpan(HoursCorretion, MinutesCorretion, SecondsCorretion);
+                    SecondsCorretion -= time.Second;
+                }
+                else
+                {
+                    HoursCorretion += 1;
+                }
             }
             return new Response(DisplayTime());
         }
@@ -62,4 +73,6 @@ namespace GShock.Core.States
             return new Response(DisplayTime());
         }
     }
+
 }
+

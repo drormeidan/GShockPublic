@@ -35,7 +35,7 @@ namespace GShock.Core.States
             return new Response(_timeLeft.ToString(_timeLeftFormat));
         }
 
-        public Response ButtonB()
+        public Response ButtonB(bool isDouble, bool isLong)
         {
             _endTime = _endTime.AddMinutes(1);
             _timeLeft = _timeLeft.Add(new TimeSpan(0, 1, 0));
@@ -46,7 +46,7 @@ namespace GShock.Core.States
             return this.Refresh();
         }
 
-        public Response ButtonA()
+        public Response ButtonA(bool isDouble, bool isLong)
         {
             _isRunning = !_isRunning;
             if (_isRunning)
@@ -56,7 +56,7 @@ namespace GShock.Core.States
             return this.Refresh();
         }
 
-        public Response ButtonC()
+        public Response ButtonC(bool isDouble, bool isLong)
         {
             _endTime = _endTime.AddHours(1);
             _timeLeft = _timeLeft.Add(new TimeSpan(1, 0, 0));
