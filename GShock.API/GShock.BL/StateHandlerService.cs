@@ -19,7 +19,7 @@ namespace GShock.BL
 
         public StateHandlerService()
         {
-            States = new IOperateState[] { new Timer() };
+            States = new IOperateState[] { new Timer(), new Dater() };
             CurrentStateId = 0;
             _startTimeState = DateTime.Now;
             _endTimeState = DateTime.Now;

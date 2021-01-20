@@ -8,10 +8,10 @@ namespace GShock.Core.ResponseTypes
     {
         public Response(string showString, bool nonUpdate = false)
         {
-            ShowString = showString;
+            Value = showString;
             NonUpdate = nonUpdate;
         }
-        public string ShowString { get; set; }
+        public Object Value { get; set; }
         public bool NonUpdate { get; set; }
     }
 }

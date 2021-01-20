@@ -8,7 +8,10 @@
 
 <button class="btn btn-primary" @onclick="(async () => { GShock(); })">Turn on</button>
 
-<p> @display</p>
+@if (display.Type == "string")
+{
+<p> @display.Value</p>
+}
 
 <button class="btn btn-primary" @onclick="() => { ButtonClicked(new ButtonA(handleService)); }">A</button>
 <button class="btn btn-primary" @onclick="() => { ButtonClicked(new ButtonB(handleService)); }">B</button>
@@ -16,37 +19,17 @@
 <button class="btn btn-primary" @onclick="() => { ButtonClicked(new ButtonS(handleService)); }">S</button>
 
 @code {
-    public string display = "hello world";
     public bool isClicked = false;
+    public Display display = new Display("string", "Turn on GShock");
+    public int refreshTime = 1;
+
 
     private void ButtonClicked(IClickButton clickButton)
     {
         var response = clickButton.Execute();
-        display = response.ShowString;
+        display.Value = response.Value;
         StateHasChanged();
 
-    }
-
-    private void ButtonA()
-    {
-        var response = handleService.ButtonA();
-        display = response.ShowString;
-        StateHasChanged();
-    }
-
-
-    private void ButtonB()
-    {
-        var response = handleService.ButtonB();
-        display = response.ShowString;
-        StateHasChanged();
-    }
-
-    private void ButtonC()
-    {
-        var response = handleService.ButtonC();
-        display = response.ShowString;
-        StateHasChanged();
     }
 
     async Task GShock()
@@ -54,8 +37,8 @@
         while(true)
         {
             await Task.Delay(1000);
-            var response = handleService.Refresh(1);
-            display = response.ShowString;
+            var response = handleService.Refresh(refreshTime);
+            display.Value = response.Value;
 
             StateHasChanged();
         }
